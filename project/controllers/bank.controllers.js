@@ -23,7 +23,25 @@ const users = require('../data.json')
 //   return res.send(obj);
 // }
 
+
+
+
+const getWorkers = (req,res)=>{
+  
+  const a = req.body;
+  
+  console.log('a')
+  return res.send(a);
+}
+
+const getWorkers2 = (req,res)=>{
+  console.log('aaa')
+  return res.send(req);
+}
+
 module.exports = {
   // func1,
   // func2
+  getWorkers,
+  getWorkers2
 }
