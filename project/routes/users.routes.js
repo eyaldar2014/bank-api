@@ -1,24 +1,39 @@
 const express = require('express');
+
 const router = express.Router();
 const users = require('../data.json')
 const bankController = require('../controllers/bank.controllers')
 
 
-
-router.get('/',(req,res)=>{
-  bankController.getWorkers(req, res)
+router.get('/cashFilter',(req,res)=>{
+  bankController.cashFilter(req, res)
+});
+router.get('/showUserDetails',(req,res)=>{
+  bankController.showUserDetails(req, res)
+});
+router.get('/showAllUsersDetails',(req,res)=>{
+  bankController.showAllUsersDetails(req, res)
 });
 
-router.get('/2',(req,res)=>{
-  bankController.getWorkers2(req, res)
+router.post('/activateUser',(req,res)=>{
+  bankController.activateUser(req, res)
+});
+router.post('/addUser',(req,res)=>{
+  bankController.addUser(req, res)
+});
+router.post('/deposit',(req,res)=>{
+  bankController.depositing(req, res)
+});
+router.post('/updateCredit',(req,res)=>{
+  bankController.updateCredit(req, res)
+});
+router.post('/withdraw',(req,res)=>{
+  bankController.withdraw(req, res)
+});
+router.post('/transfer',(req,res)=>{
+  bankController.transfer(req, res)
 });
 
-// router.get('/',(req,res)=>{
-      // function1 // workerController.addWorker(req, res); ////// or ////// return res.status(200).json({users : usersJson.users})
-// }).get('/:id',(req,res)=>{
-  // function2 // workerController.getWorkers(req, res); ////// or ////// return res.status(200).json({user : usersJson.users[req.params.id]})
-// }).post('/',(req,res)=>{
-// function3 // workerController.anotherfunc...(req, res); ////// or ////// return res.status(200).json({user : usersJson.users[req.params.id]})
-// })
+
 
 module.exports = router;
